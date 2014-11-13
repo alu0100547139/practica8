@@ -18,9 +18,16 @@ attr_accessor :preg, :c, :dif, :a
         "(#{@preg},#{@aux})"
     end
 
-	def <=>(other)
-		self.dif <=> other.dif
-	    
-	end
+#	def <=>(other)
+#		self.dif <=> other.dif
+#	    
+#	end
 	
+
+	def <=>(other)
+	
+      	preg.size <=> other.preg.size
+	      	
+	end
+	    
 end

@@ -1,13 +1,14 @@
 require 'practica8.rb'
+
 require 'test/unit'
 
 describe Lista do
     before :each do
         @L1=Lista.new
         @P1=Sel_multiple.new("¿Cual es la salida del sig codigo ruby? ","c",["#<Xyz:0xa020302>","nil","0","ninguna"],'2')
-		@P2=Sel_simple.new("La siguiente definicion de un hash es valida?","c","1")
-		@P3=Sel_multiple.new("Cual es la salida del siguiente codigo=","c",["1","bob","Hey","Ninguna"],"2")
-		@P4=Sel_multiple.new("¿Cual es el tipo del objeto en el siguiente codigo Ruby?","c",["instancia de Class","Constante","Objeto","Ninguna"],"3")
+	@P2=Sel_simple.new("La siguiente definicion de un hash es valida?","c","1")
+	@P3=Sel_multiple.new("Cual es la salida del siguiente codigo=","c",["1","bob","Hey","Ninguna"],"2")
+	@P4=Sel_multiple.new("¿Cual es el tipo del objeto en el siguiente codigo Ruby?","c",["instancia de Class","Constante","Objeto","Ninguna"],"3")
         @P5=Sel_simple.new(" Es apropiado que una clase Tablero herede de una clase Juego","c","2")
        
         @N1=Nodo.new(@P1,nil,nil)
@@ -23,7 +24,8 @@ describe Lista do
         @L1.insert(@N5)
     end
 	
-	#pruebas para la clase sel_simple y sel_multiple con comparable
+
+#pruebas para la clase sel_simple y sel_multiple con comparable
 	
 	it " pertenece a la clase sel_simple" do
 	
@@ -36,26 +38,26 @@ describe Lista do
 		
 	end
 	
-	it "comparar valor dificultad de la pregunta P2 < P5" do
+	it "Comparar P2 < P5" do
 	
-		expect(@P2.dif<@P5.dif).to eq (true)
+		expect(@P2<@P5).to eq (true)
+	
+	end
+	
+	it "Comparar P1 == P3" do
+	
+		expect(@P1==@P3).to eq (false)
 	
 	end
 	
-	it "comparar valor dificultad de la pregunta P1 = P3" do
-	
-		expect(@P1.dif==@P3.dif).to eq (true)
-	
+	it "Comparar P2 <= p5" do
+		
+		expect(@P2<=@P5).to eq (true)
 	end
 		
 		
-	
-	
-	it " Existe un objeto examen" do
-		
-		expect(@P1.is_a?Examen).to eq (true)
-		
-	end        
+# Pruebas para la clase lista	
+	      
     
 	it " Existe una instancia de la clase lista"do
 		
@@ -79,7 +81,7 @@ describe Lista do
     
 	it " Se puede extraer de una lista por el principio" do
 		
-       	expect(@L1.pop).to eq (true)
+	       	expect(@L1.pop).to eq (true)
        	
 	end
 	
@@ -88,6 +90,24 @@ describe Lista do
 	 	
         	expect(@L1.extract).to eq (true)
 	end
-    
+    	
+
+#Pruebas para la clase lista, con modulo enumerable
+
+	it " Maximo de la lista " do
+	
+		expect(@L1.max).to eq("¿Cual es la salida del sig codigo ruby? ")
+	end
+
+	it " Cuenta de la lista " do
+		
+		expect(@L1.count).to eq(5)
+	end
+
+	it " Minimo de la lista " do
+
+		expect(@L1.min).to eq(" Es apropiado que una clase Tablero herede de una clase Juego")
+	end
+
 end
 

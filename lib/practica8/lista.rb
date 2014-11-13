@@ -16,13 +16,14 @@ include Enumerable
 		if(@tail!=nil)
 			@aux=@tail
 				while (@aux!=nil)
-					yield(@aux.preg)
+					yield(@aux.value.preg)
 					@aux=@aux.next
 				end
 		end
-
+	
 	end
 	
+
 # Metodo para insertar por el principio
 
 	def push(nodo)
