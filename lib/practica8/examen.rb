@@ -19,6 +19,6 @@ attr_accessor :preg, :c, :dif, :a
     end
 
 	def <=>(other)
-		# basarse en la dif
+		self.dif <=> other.dif
 	end
 end
