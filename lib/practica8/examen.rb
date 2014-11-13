@@ -20,5 +20,7 @@ attr_accessor :preg, :c, :dif, :a
 
 	def <=>(other)
 		self.dif <=> other.dif
+	    
 	end
+	
 end
