@@ -1,13 +1,28 @@
 Nodo = Struct.new(:value, :next, :prev)
 
 class Lista
+
+include Enumerable
+
 	attr_accessor :head, :tail	
 
 	def initialize
 		@head=nil
 		@tail=nil	
 	end
+# Metodo each
 
+	def each
+		if(@tail!=nil)
+			@aux=@tail
+				while (@aux!=nil)
+					yield(@aux.preg)
+					@aux=@aux.next
+				end
+		end
+
+	end
+	
 # Metodo para insertar por el principio
 
 	def push(nodo)
