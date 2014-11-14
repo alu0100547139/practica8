@@ -16,7 +16,7 @@ include Enumerable
 		if(@tail!=nil)
 			@aux=@tail
 				while (@aux!=nil)
-					yield(@aux.value.preg)
+					yield(@aux.value)
 					@aux=@aux.next
 				end
 		end

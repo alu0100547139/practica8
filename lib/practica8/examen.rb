@@ -26,8 +26,13 @@ attr_accessor :preg, :c, :dif, :a
 
 	def <=>(other)
 	
-      	preg.size <=> other.preg.size
+      	@preg.size <=> other.preg.size
 	      	
 	end
 	    
+	def ==(other)
+	    
+	  @preg.size == other.preg.size && @preg == other.preg
+	          
+	  end
 end

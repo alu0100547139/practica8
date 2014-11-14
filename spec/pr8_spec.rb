@@ -1,3 +1,4 @@
+#encoding: utf-8
 require 'practica8.rb'
 
 require 'test/unit'
@@ -6,9 +7,9 @@ describe Lista do
     before :each do
         @L1=Lista.new
         @P1=Sel_multiple.new("¿Cual es la salida del sig codigo ruby? ","c",["#<Xyz:0xa020302>","nil","0","ninguna"],'2')
-	@P2=Sel_simple.new("La siguiente definicion de un hash es valida?","c","1")
-	@P3=Sel_multiple.new("Cual es la salida del siguiente codigo=","c",["1","bob","Hey","Ninguna"],"2")
-	@P4=Sel_multiple.new("¿Cual es el tipo del objeto en el siguiente codigo Ruby?","c",["instancia de Class","Constante","Objeto","Ninguna"],"3")
+		@P2=Sel_simple.new("La siguiente definicion de un hash es valida?","c","1")
+		@P3=Sel_multiple.new("Cual es la salida del siguiente codigo=","c",["1","bob","Hey","Ninguna"],"2")
+		@P4=Sel_multiple.new("¿Cual es el tipo del objeto en el siguiente codigo Ruby?","c",["instancia de Class","Constante","Objeto","Ninguna"],"3")
         @P5=Sel_simple.new(" Es apropiado que una clase Tablero herede de una clase Juego","c","2")
        
         @N1=Nodo.new(@P1,nil,nil)
@@ -57,7 +58,7 @@ describe Lista do
 		
 	it " Metodo between?  " do
 
-		expect(@P3.between?(@P2,@P4)).to eq(false)
+		expect(@P2.between?(@P3,@P4)).to eq(true)
 	end		
 # Pruebas para la clase lista	
 	      
@@ -99,7 +100,7 @@ describe Lista do
 
 	it " Maximo de la lista " do
 	
-		expect(@L1.max).to eq("¿Cual es la salida del sig codigo ruby? ")
+		expect(@L1.max).to eq(@P5)
 	end
 
 	it " Cuenta de la lista " do
@@ -109,11 +110,12 @@ describe Lista do
 
 	it " Minimo de la lista " do
 
-		expect(@L1.min).to eq(" Es apropiado que una clase Tablero herede de una clase Juego")
+		expect(@L1.min).to eq(@P3)
 	end
 	
 	it " Ordenacion, Metodo Sort" do
-	
-		expect(@L1.sort).to eq ([" Es apropiado que una clase Tablero herede de una clase Juego" ,"Cual es la salida del siguiente codigo=", "La siguiente definicion de un hash es valida?", "¿Cual es el tipo del objeto en el siguiente codigo Ruby?", "¿Cual es la salida del sig codigo ruby? "])
+		
+		@L2=@L1.sort
+		expect(@L1.sort).to eq(@L2)
 	end
 end
