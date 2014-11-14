@@ -55,7 +55,10 @@ describe Lista do
 		expect(@P2<=@P5).to eq (true)
 	end
 		
-		
+	it " Metodo between?  " do
+
+		expect(@P3.between?(@P2,@P4)).to eq(false)
+	end		
 # Pruebas para la clase lista	
 	      
     
@@ -108,6 +111,9 @@ describe Lista do
 
 		expect(@L1.min).to eq(" Es apropiado que una clase Tablero herede de una clase Juego")
 	end
-
+	
+	it " Ordenacion, Metodo Sort" do
+	
+		expect(@L1.sort).to eq ([" Es apropiado que una clase Tablero herede de una clase Juego" ,"Cual es la salida del siguiente codigo=", "La siguiente definicion de un hash es valida?", "¿Cual es el tipo del objeto en el siguiente codigo Ruby?", "¿Cual es la salida del sig codigo ruby? "])
+	end
 end
-
